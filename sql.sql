@@ -1,0 +1,27 @@
+DROP DATABASE IF EXISTS ssrs;
+CREATE DATABASE ssrs;
+USE ssrs;
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    role VARCHAR(255) NOT NULL
+);
+CREATE TABLE Requests (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    category VARCHAR(100),
+    status VARCHAR(100),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE Responses (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    request_id INT NOT NULL,
+    admin_id INT NOT NULL,
+    response_message TEXT NOT NULL,
+    response_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
