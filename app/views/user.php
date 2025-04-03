@@ -9,6 +9,12 @@ if (isset($_SESSION['username'])) {
   header('Location: login.html');
   exit;
 }
+
+$stmt = $db->prepare("SELECT * FROM requests WHERE user_id = ?");
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+
 include '../models/getUserRequests.php';
 $user_id = $_SESSION['user_id'];
 $sql = "SELECT * FROM requests WHERE user_id = '$user_id'";
