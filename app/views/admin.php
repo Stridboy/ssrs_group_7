@@ -295,7 +295,7 @@ $result = mysqli_query($db, $sql);
           <?php endwhile; ?>
         <?php else: ?>
           <div class="empty-state">
-            <h3>No pending requests found</h3>
+            <h3>No pending requests found </h3>
             <p>All requests have been processed</p>
           </div>
         <?php endif; ?>
